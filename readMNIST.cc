@@ -38,11 +38,12 @@ vector<int> readLabelFile (string fileName)
 			unsigned char labelValue;
 			labelValue = 0;
 			f.read((char*)&labelValue, sizeof(unsigned char));
+
 			labels.push_back((int)labelValue);
 		}
 	}
 	f.close();
-
+	
 	return labels;
 }
 
