@@ -67,11 +67,11 @@ void computeOutputLayer (float outputLayer[10], float inputLayer[784], std::vect
 float weightedSumInput (float inputLayer[784], std::vector<float> weights);
 
 /**
- * Generate random weights from [0,1] to initialize weights in neural network.
+ * Generate weights to be 0.5 to start.
  *
  * Return: vector<vector<float>>: vector storing the weights
  */
-std::vector<std::vector<float> > genRandWeights ();
+std::vector<std::vector<float> > genWeights ();
 
 /**
  * Set the array representing the input layer of the neural network with the pixel 

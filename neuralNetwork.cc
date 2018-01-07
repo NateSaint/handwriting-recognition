@@ -13,8 +13,8 @@ vector<vector<float> > trainNetwork (vector<vector<int> > images, vector<int> la
 	int numCorrect = 0;
 	vector<vector<float> > weights;
 
-	// Set initial weight for neural network
-	weights = genRandWeights();
+	// Set initial weights for neural network
+	weights = genWeights();
 
 	// Loop through all training images
 	for (int i = 0; i < images.size(); i++)
@@ -30,20 +30,44 @@ vector<vector<float> > trainNetwork (vector<vector<int> > images, vector<int> la
 		computeOutputLayer(outputLayer, inputLayer, weights);
 
 		// If classification is correct, increment counter
-		if (labels[i] == checkOutput(outputLayer))
+		if (checkOutput(correctOutput) == checkOutput(outputLayer))
 		{
 			numCorrect++;
 		}
 
-		// Adjust weights (delta rule)
+		// Adjust weights (delta rule (gradient descent))
 		weights = adjustWeights(weights, inputLayer, outputLayer, correctOutput, 0.5);
 	}
 
 	// Print the classification results from training
 	cout << "Number of images correctly classified in training:\n" << numCorrect << 
-		" / " << images.size() << " = " << ((float)numCorrect/images.size())*100.0 << "%% classification" << endl;
+		" / " << images.size() << " = " << ((float)numCorrect/images.size())*100.0 << "% classification" << endl;
 
 	return weights;
+}
+
+void testNetwork (vector<vector<float> > weights, vector<vector<int> > images, vector<int> labels)
+{
+	int numCorrect = 0;
+
+	for (int i = 0; i < images.size(); i++)
+	{
+		float inputLayer[784];
+		float outputLayer[10];
+
+		setInputLayer(inputLayer, images[i]);
+		computeOutputLayer(outputLayer, inputLayer, weights);
+
+		// If classification is correct, increment counter
+		if (labels[i] == checkOutput(outputLayer))
+		{
+			numCorrect++;
+		}
+	}
+
+	// Print the classification results from testing
+	cout << "Number of images correctly classified:\n" << numCorrect << 
+		" / " << images.size() << " = " << ((float)numCorrect/images.size())*100.0 << "% classification" << endl;
 }
 
 int checkOutput (float outputLayer[10])
@@ -70,7 +94,7 @@ vector<vector<float> > adjustWeights (vector<vector<float> > weights, float inpu
 		for (int j = 0; j < 784; j++)
 		{
 			// Using the Delta rule (Gradient descent learning rule), to update the weights
-			temp.push_back(weights[i][j] + (learningRate*inputLayer[j]*(correctOutput[i] - outputLayer[i])));
+			temp.push_back(weights[i][j] + (learningRate*inputLayer[j]/255*(correctOutput[i] - outputLayer[i])));
 		}
 
 		updatedWeights.push_back(temp);
@@ -83,8 +107,7 @@ void computeOutputLayer (float outputLayer[10], float inputLayer[784], vector<ve
 {
 	for (int i = 0; i < 10; i++)
 	{
-		// Divide by 784 to make output between 0 and 1, since 784 is the highest possible value
-		outputLayer[i] = weightedSumInput(inputLayer, weights[i])/784;
+		outputLayer[i] = weightedSumInput(inputLayer, weights[i]) / 784;
 	}
 }
 
@@ -94,13 +117,14 @@ float weightedSumInput (float inputLayer[784], vector<float> weights)
 
 	for (int i = 0; i < 784; i++)
 	{
-		sum += inputLayer[i] * weights[i];
+		//cout << inputLayer[i] << " " << weights[i] << endl;
+		sum += (inputLayer[i]/255) * weights[i];
 	}
 
 	return sum;
 }
 
-vector<vector<float> > genRandWeights ()
+vector<vector<float> > genWeights ()
 {
 	vector<vector<float> > weights;
 
@@ -110,9 +134,7 @@ vector<vector<float> > genRandWeights ()
 		vector<float> temp;
 		for (int j = 0; j < 784; j++)
 		{
-			float randomNum = (float)rand()/RAND_MAX;
-
-			temp.push_back(randomNum);
+			temp.push_back(0);
 		}
 		weights.push_back(temp);
 	}
@@ -125,7 +147,7 @@ void setInputLayer (float inputLayer[784], vector<int> pixels)
 	for (int i = 0; i < 784; i++)
 	{
 		// change [0,255] range to [0,1]
-		inputLayer[i] = (float)pixels[i] / 255;
+		inputLayer[i] = (float)pixels[i];
 	}
 }
 

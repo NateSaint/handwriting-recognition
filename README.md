@@ -5,19 +5,21 @@
 
 ### -- Programming done using C++, no machine learning libraries were used--
 
+  NOTE: This is my first time setting up a neural network, so I decided to avoid the hidden layers... for now.  I 
+was told that handwritten digits with the MNIST dataset was a good place to practice.
+
   This is a single-layer neural network trained using the Delta rule which is a gradient descent learning rule for 
-updating weights.  The input neurons are the brightness levels for each pixel of each image provided in the MNIST dataset.
-The weights are initially randomly (pseudo) assigned a value in the range 0 to 1, inclusive, and the brightness level of
-each pixel is adjusted to be in the range 0 to 1 instead of 0 to 255, both inclusive, (where 255 is black and 0 is white).
-The output layer is 10 output neurons, each having a value between 0 and 1, inclusive.  The greatest value is the digit that 
-the neural network will classify the image as.
-  
-  The weighted sum of the input neurons (transformed to the scale 0 to 1, inclusive) is how the values in the output layer 
-are determined.  Everytime an output layer is computed, the error is calculated and the weights are adjusted using the Delta 
-rule, which makes use of gradient descent.  I used a learning rate of 0.5 in my testing.
+updating weights.  The input neurons are the brightness levels for each pixel of each image provided in the MNIST dataset, 
+from 0 to 255, inclusive, where 255 is black and 0 is white. The weights are initially assigned a value of 0, idea being 
+that the weights will start having no effect on the output. The output layer is 10 output neurons, each with a value, 
+the greatest value is the digit that the neural network will classify the image as.
+
+  The weighted sum of the input neurons is how the values in the output layer are determined.  Everytime an output layer 
+is computed, the error is calculated and the weights are adjusted using the Delta rule, which makes use of gradient descent.
 
 #### Links to the resources I used:
   * Where I learned about the Delta rule: <https://en.wikipedia.org/wiki/Delta_rule>
+  * Where I learned about the Delta rule and gradient descent: <http://sebastianraschka.com/Articles/2015_singlelayer_neurons.html>
   * MNIST Dataset: <http://yann.lecun.com/exdb/mnist/>
   
 #### Libraries used:

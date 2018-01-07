@@ -42,7 +42,11 @@ int main ()
 	 */
 	cout << "Training neural network..." << endl;
 	trainedWeights = trainNetwork(trainingImages, trainingLabels);
-	cout << "Done training neural network" << endl;
+	cout << "Done training neural network\n\n" << endl;
+
+	cout << "Testing neural network..." << endl;
+	testNetwork(trainedWeights, testingImages, testingLabels);
+	cout << "Done testing neural network\n\n" << endl;
 
 	return 0;
 }
