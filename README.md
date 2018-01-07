@@ -12,10 +12,33 @@ was told that handwritten digits with the MNIST dataset was a good place to prac
 updating weights.  The input neurons are the brightness levels for each pixel of each image provided in the MNIST dataset, 
 from 0 to 255, inclusive, where 255 is black and 0 is white. The weights are initially assigned a value of 0, idea being 
 that the weights will start having no effect on the output. The output layer is 10 output neurons, each with a value, 
-the greatest value is the digit that the neural network will classify the image as.
+the greatest value corresdonds to the index of the digit that the neural network will classify the image as.
 
   The weighted sum of the input neurons is how the values in the output layer are determined.  Everytime an output layer 
 is computed, the error is calculated and the weights are adjusted using the Delta rule, which makes use of gradient descent.
+
+#### Sample output:
+```
+Reading training labels...
+Successfully read training labels
+Reading training images...
+Successfully read training images
+Reading testing labels...
+Successfully read testing labels
+Reading testing images...
+Successfully read testing images
+
+Training neural network...
+Number of images correctly classified in training:
+50506 / 60000 = 84.1767% classification
+Done training neural network
+
+
+Testing neural network...
+Number of images correctly classified:
+8281 / 10000 = 82.81% classification
+Done testing neural network
+```
 
 #### Links to the resources I used:
   * Where I learned about the Delta rule: <https://en.wikipedia.org/wiki/Delta_rule>
