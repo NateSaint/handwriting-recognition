@@ -34,7 +34,7 @@ rule, which makes use of gradient descent.  I used a learning rate of 0.5 in my 
       * .h files are named the same as their respective .cc file
 
 #### Running:
-  * Ensure the provided training and testing files are unzipped and the file names are unchanged
+  * Ensure the provided training and testing files are uncompressed and the file names are unchanged
       * The names expected are:
           * train-labels-idx1-ubyte
           * train-images-idx3-ubyte
