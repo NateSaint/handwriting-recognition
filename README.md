@@ -1,5 +1,7 @@
 # handwriting-recognition-neural-network
-Implementing my first neural network to recognize handwritten digits.
+Neural network to recognize handwritten digits.
+
+First time implementing a neural network.
 
 Trained and tested using the MNIST dataset for handwritten digits.
 
