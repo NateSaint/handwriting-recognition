@@ -1,16 +1,11 @@
 # handwriting-recognition-neural-network
-***** Neural network to recognize handwritten digits *****
+## ***** Neural network to recognize handwritten digits *****
 
-First time implementing a neural network. Trained and tested using the MNIST dataset for handwritten digits.
+### First time implementing a neural network. Trained and tested using the MNIST dataset for handwritten digits.
 
--- Programming done using C++, no machine learning libraries were used--
+### -- Programming done using C++, no machine learning libraries were used--
 
-Libraries used:
-  -<iostream>
-  -<fstream>
-  -<vector>
-  -<cstdlib>
-  -<ctime>
+Libraries used: iostream, fstream, vector, cstdlib, ctime
 
 Compilation:
   -"g++ -o run main.cc readMNIST.cc helperFunctions.cc neuralNetwork.cc"
