@@ -30,14 +30,15 @@ Successfully read testing images
 
 Training neural network...
 Number of images correctly classified in training:
-50506 / 60000 = 84.1767% classification
+50438 / 60000 = 84.0633% classification
 Done training neural network
 
 
 Testing neural network...
 Number of images correctly classified:
-8281 / 10000 = 82.81% classification
+8357 / 10000 = 83.57% classification
 Done testing neural network
+
 ```
 
 #### Links to the resources I used:
