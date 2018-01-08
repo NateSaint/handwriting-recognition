@@ -36,7 +36,7 @@ vector<vector<float> > trainNetwork (vector<vector<int> > images, vector<int> la
 		}
 
 		// Adjust weights (delta rule (gradient descent))
-		weights = adjustWeights(weights, inputLayer, outputLayer, correctOutput, 0.5);
+		weights = adjustWeights(weights, inputLayer, outputLayer, correctOutput, 0.3);
 	}
 
 	// Print the classification results from training
