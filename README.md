@@ -5,16 +5,16 @@
 
 ### -- Programming done using C++, no machine learning libraries were used--
 
-  NOTE: This is my first time setting up a neural network, so I decided to avoid the hidden layers... for now.  I 
+  NOTE: This is my first time setting up a neural network, so I decided to avoid hidden layers... for now.  I 
 was told that handwritten digits with the MNIST dataset was a good place to practice.
 
   This is a single-layer neural network trained using the Delta rule which is a gradient descent learning rule for 
-updating weights.  The input neurons are the brightness levels for each pixel of each image provided in the MNIST dataset, 
+updating weights. The input neurons are the brightness levels for each pixel of each image provided in the MNIST dataset, 
 from 0 to 255, inclusive, where 255 is black and 0 is white. The weights are initially assigned a value of 0, idea being 
-that the weights will start having no effect on the output. The output layer is 10 output neurons, each with a value, 
-the greatest value corresdonds to the index of the digit that the neural network will classify the image as.
+that the weights will start having no effect on the output. The output layer is 10 output neurons, each having a value.
+The greatest value corresponds to the index of the digit the neural network will classify the image as.
 
-  The weighted sum of the input neurons is how the values in the output layer are determined.  Everytime an output layer 
+  The weighted sum of the input neurons is how the values in the output layer are determined. Every time an output node 
 is computed, the error is calculated and the weights are adjusted using the Delta rule, which makes use of gradient descent.
 
 #### Sample output:
